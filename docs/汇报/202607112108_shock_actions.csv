@@ -1,0 +1,5 @@
+﻿datetime,news_id,trend_level,direction,title,actions
+2025-07-13 22:00:00+00:00,hist_202507131230_cpi,L3,neutral,US CPI YoY,5
+2025-07-30 18:00:00+00:00,hist_202507301800_fomc,L3,neutral,FOMC Statement,10
+2025-08-01 13:00:00+00:00,hist_202508011230_nfp,L3,neutral,Nonfarm Payrolls,0
+2025-08-13 13:00:00+00:00,hist_202508131230_cpi,L3,neutral,US CPI YoY,10

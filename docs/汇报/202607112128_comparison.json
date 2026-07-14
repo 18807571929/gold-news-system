@@ -1,0 +1,49 @@
+{
+  "generated_at": "2026-07-11T21:28:53.830448+08:00",
+  "meta": {
+    "run_id": "202607112128",
+    "run_id_format": "YYYYMMDDHHmm_文件名",
+    "run_id_timezone": "Asia/Shanghai",
+    "backtest_mode": "production",
+    "backtest_mode_cn": "正式年度回测",
+    "price_csv": "E:\\量化项目\\02 History Data\\data\\XAUUSD_H1.csv",
+    "window_start": "2023-07-11 23:00:00+00:00",
+    "window_end": "2026-07-10 23:00:00+00:00",
+    "window_days": 1095,
+    "years": 3.0,
+    "initial_balance": 500.0,
+    "signal_count": 96,
+    "signal_source": "historical",
+    "aligned": false,
+    "base_spacing": 3.5,
+    "max_layers": 3,
+    "default_lot": 0.01,
+    "leverage": 100.0,
+    "stop_out_margin_level": 50.0
+  },
+  "baseline": {
+    "mode": "baseline",
+    "initial_balance": 500.0,
+    "final_equity": 19.96,
+    "total_pnl": -480.04,
+    "max_drawdown_pct": 97.82,
+    "trade_count": 232,
+    "shock_actions": 0,
+    "stopped_out": true
+  },
+  "news_adapter": {
+    "mode": "news_adapter",
+    "initial_balance": 500.0,
+    "final_equity": 40.47,
+    "total_pnl": -459.53,
+    "max_drawdown_pct": 93.77,
+    "trade_count": 178,
+    "shock_actions": 34,
+    "stopped_out": true
+  },
+  "delta": {
+    "pnl_improvement": 20.51,
+    "max_dd_reduction": 4.05,
+    "shock_actions": 34
+  }
+}

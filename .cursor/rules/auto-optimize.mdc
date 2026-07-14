@@ -1,0 +1,20 @@
+---
+description: 无人值守回测优化任务时遵循（老师要求的 Cursor Agent 自动优化）
+alwaysApply: false
+globs:
+  - scripts/auto_optimize*.py
+  - scripts/scan_grid_params.py
+  - scripts/run_news_grid_backtest.py
+  - config/config.example.yaml
+  - docs/操作记录/**/*
+---
+
+# 自动优化 Agent 规则
+
+当用户或自动化要求「自动优化 / 20 轮回测 / auto-optimize」时：
+
+1. 先把无密钥的当前改动提交到 Git。
+2. 默认用过去 **2 年** 数据跑满 **20 轮**；方向自选，不打断用户确认。
+3. 权威提示词见 `@.cursor/prompts/auto-optimize.md`。
+4. 结果写入 `docs/操作记录/`，示例配置同步到 `config/config.example.yaml`。
+5. 绝不提交 `config/config.yaml`、`.env` 或 API Key。

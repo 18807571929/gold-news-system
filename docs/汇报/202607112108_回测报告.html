@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>202607112108 — 1年回测 / $500 / 100x</title>
+  <style>
+    body { font-family: "Microsoft YaHei", sans-serif; max-width: 960px; margin: 40px auto; padding: 0 20px; line-height: 1.6; }
+    h1 { font-size: 22px; border-bottom: 2px solid #c9a227; padding-bottom: 8px; }
+    table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 14px; }
+    th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: right; }
+    th { background: #f5f0e6; text-align: center; }
+    td:first-child { text-align: left; font-weight: 500; }
+    .meta, .warn { padding: 14px; border-radius: 6px; font-size: 14px; margin: 16px 0; }
+    .meta { background: #fafafa; border: 1px solid #eee; }
+    .warn { background: #fff8e1; border-left: 4px solid #ff9800; }
+    .run { font-family: Consolas, monospace; font-size: 18px; color: #1565c0; font-weight: bold; }
+    .neg { color: #c62828; }
+  </style>
+</head>
+<body>
+  <h1>黄金新闻网格回测（修复版）</h1>
+  <p class="run">202607112108</p>
+  <p>1 年 · $500 · <strong>100 倍杠杆</strong> · 强平线 50% · 2026-07-11 21:08</p>
+  <div class="meta">
+    窗口：2025-07-10 ~ 2026-07-10 · 信号 32 条 · 网格间距 2.0 · 5 层 · 0.01 手
+  </div>
+  <table>
+    <tr><th>指标</th><th>Baseline</th><th>News Adapter</th></tr>
+    <tr><td>最终权益</td><td class="neg">130.60</td><td class="neg">114.07</td></tr>
+    <tr><td>总盈亏</td><td class="neg">-369.40</td><td class="neg">-385.93</td></tr>
+    <tr><td>最大回撤</td><td>80.27%</td><td>88.87%</td></tr>
+    <tr><td>成交笔数</td><td>148</td><td>628</td></tr>
+    <tr><td>冲击动作</td><td>0</td><td>26</td></tr>
+    <tr><td>保证金强平</td><td>是</td><td>是</td></tr>
+  </table>
+  <div class="warn">
+    <strong>修复说明：</strong>旧版未计杠杆/保证金，网格无限叠仓，浮动亏损被误显示为「全亏光」。本版按 100x 计算保证金，50% 强平，并限制每层最大持仓。
+  </div>
+  <p>数据文件：<code>202607112108_*.csv</code> / <code>.json</code>（同目录）</p>
+</body>
+</html>

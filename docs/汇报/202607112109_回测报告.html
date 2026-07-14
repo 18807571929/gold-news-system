@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>202607112109 — 三年回测交易日志</title>
+  <style>
+    body { font-family: "Microsoft YaHei", sans-serif; max-width: 1100px; margin: 24px auto; padding: 0 20px 40px; color: #222; font-size: 14px; line-height: 1.5; }
+    h1 { font-size: 22px; border-bottom: 3px solid #c9a227; padding-bottom: 8px; }
+    h2 { font-size: 16px; margin-top: 28px; color: #333; }
+    h3 { font-size: 14px; margin-top: 20px; color: #555; }
+    .meta { background: #f7f7f7; padding: 12px 16px; border-radius: 6px; font-size: 13px; margin: 12px 0; }
+    table { border-collapse: collapse; width: 100%; margin: 10px 0 16px; }
+    th, td { border: 1px solid #ccc; padding: 5px 8px; text-align: center; font-size: 12px; }
+    th { background: #f5f0e6; position: sticky; top: 0; }
+    table.log td:nth-child(5) { text-align: right; }
+    table.log td:last-child { text-align: right; }
+    table.summary td:first-child { text-align: left; }
+    .neg { color: #c62828; font-weight: 600; }
+    .pos { color: #2e7d32; }
+    .scroll { max-height: 480px; overflow-y: auto; border: 1px solid #ddd; border-radius: 4px; }
+    .note { font-size: 13px; color: #666; margin: 8px 0; }
+    code { background: #eee; padding: 1px 5px; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <h1>三年回测交易日志</h1>
+  <p><strong>Run ID：</strong><code>202607112109</code> &nbsp;|&nbsp; 窗口 2023-07-11 ~ 2026-07-10 &nbsp;|&nbsp; $500 · 100x杠杆</p>
+  <div class="meta">
+    完整 CSV：<code>202607112109_trades_baseline.csv</code>（516 笔）、
+    <code>202607112109_trades_news_adapter.csv</code>（364 笔）。
+    动作：成交(fill) / 止盈(take_profit) / 强平(stop_out)。
+  </div>
+
+  <h2>一、Baseline 交易日志（516 笔）</h2>
+  <h3>按月汇总</h3>
+  <table class="summary">
+<tr><th>月份</th><th>合计</th><th>成交</th><th>止盈</th><th>强平</th><th>盈亏(USD)</th></tr>
+<tr><td>2023-07</td><td>11</td><td>8</td><td>3</td><td>0</td><td>6.0</td></tr>
+<tr><td>2023-08</td><td>177</td><td>86</td><td>91</td><td>0</td><td>182.0</td></tr>
+<tr><td>2023-09</td><td>19</td><td>14</td><td>5</td><td>0</td><td>10.0</td></tr>
+<tr><td>2023-10</td><td>123</td><td>57</td><td>66</td><td>0</td><td>132.0</td></tr>
+<tr><td>2023-11</td><td>39</td><td>23</td><td>16</td><td>0</td><td>32.0</td></tr>
+<tr><td>2023-12</td><td>97</td><td>47</td><td>50</td><td>0</td><td>100.0</td></tr>
+<tr><td>2024-01</td><td>33</td><td>15</td><td>18</td><td>0</td><td>36.0</td></tr>
+<tr><td>2024-02</td><td>7</td><td>3</td><td>4</td><td>0</td><td>8.0</td></tr>
+<tr><td>2024-03</td><td>5</td><td>5</td><td>0</td><td>0</td><td>0.0</td></tr>
+<tr><td>2024-04</td><td>5</td><td>0</td><td>0</td><td>5</td><td>-955.2</td></tr>
+</table>
+  <h3>全部明细</h3>
+  <div class="scroll">
+  <table class="log">
+<tr><th>时间(UTC)</th><th>动作</th><th>方向</th><th>手数</th><th>价格</th><th>层</th><th>盈亏</th></tr>
+<tr><td>2023-07-12 00:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1935.21</td><td>1</td><td></td></tr>
+<tr><td>2023-07-12 01:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1937.21</td><td>2</td><td></td></tr>
+<tr><td>2023-07-12 02:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1939.21</td><td>3</td><td></td></tr>
+<tr><td>2023-07-12 06:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1935.21</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-12 06:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1937.21</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-12 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1941.21</td><td>4</td><td></td></tr>
+<tr><td>2023-07-12 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1943.21</td><td>5</td><td></td></tr>
+<tr><td>2023-07-12 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1938.68</td><td>1</td><td></td></tr>
+<tr><td>2023-07-12 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1940.68</td><td>2</td><td></td></tr>
+<tr><td>2023-07-12 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1942.68</td><td>3</td><td></td></tr>
+<tr><td>2023-07-12 13:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1941.21</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-02 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1939.21</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-02 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1936.68</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-02 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1938.68</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-02 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1940.68</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-02 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1933.21</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-03 07:00</td><td>成交</td><td>买</td><td>0.01</td><td>1931.21</td><td>1</td><td></td></tr>
+<tr><td>2023-08-03 08:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1933.21</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-03 10:00</td><td>成交</td><td>买</td><td>0.01</td><td>1935.25</td><td>1</td><td></td></tr>
+<tr><td>2023-08-03 12:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1937.25</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-03 13:00</td><td>成交</td><td>买</td><td>0.01</td><td>1931.88</td><td>1</td><td></td></tr>
+<tr><td>2023-08-03 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1933.88</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-04 10:00</td><td>成交</td><td>买</td><td>0.01</td><td>1931.57</td><td>1</td><td></td></tr>
+<tr><td>2023-08-04 12:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1933.57</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-04 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1929.21</td><td>2</td><td></td></tr>
+<tr><td>2023-08-04 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1927.21</td><td>3</td><td></td></tr>
+<tr><td>2023-08-04 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1925.21</td><td>4</td><td></td></tr>
+<tr><td>2023-08-04 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1942.47</td><td>1</td><td></td></tr>
+<tr><td>2023-08-04 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1931.21</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-04 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1929.21</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-04 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1927.21</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-04 13:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1940.47</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-04 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1944.47</td><td>2</td><td></td></tr>
+<tr><td>2023-08-04 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1946.47</td><td>3</td><td></td></tr>
+<tr><td>2023-08-04 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1942.47</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-04 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1944.47</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-04 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1943.13</td><td>1</td><td></td></tr>
+<tr><td>2023-08-04 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1941.13</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-04 16:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1942.76</td><td>1</td><td></td></tr>
+<tr><td>2023-08-04 17:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1940.76</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-06 22:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1945.13</td><td>2</td><td></td></tr>
+<tr><td>2023-08-06 22:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1943.76</td><td>1</td><td></td></tr>
+<tr><td>2023-08-06 23:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1943.13</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-07 01:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1941.76</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-07 10:00</td><td>成交</td><td>买</td><td>0.01</td><td>1933.57</td><td>1</td><td></td></tr>
+<tr><td>2023-08-07 11:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1935.57</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-07 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1933.65</td><td>1</td><td></td></tr>
+<tr><td>2023-08-07 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1935.65</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-07 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1931.57</td><td>2</td><td></td></tr>
+<tr><td>2023-08-07 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1933.78</td><td>1</td><td></td></tr>
+<tr><td>2023-08-07 15:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1933.57</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-07 17:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1935.78</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-08 02:00</td><td>成交</td><td>买</td><td>0.01</td><td>1931.19</td><td>1</td><td></td></tr>
+<tr><td>2023-08-08 03:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1933.19</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-08 07:00</td><td>成交</td><td>买</td><td>0.01</td><td>1931.91</td><td>1</td><td></td></tr>
+<tr><td>2023-08-08 08:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1933.91</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-08 10:00</td><td>成交</td><td>买</td><td>0.01</td><td>1930.74</td><td>1</td><td></td></tr>
+<tr><td>2023-08-08 11:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1932.74</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-08 11:00</td><td>成交</td><td>买</td><td>0.01</td><td>1929.57</td><td>3</td><td></td></tr>
+<tr><td>2023-08-08 11:00</td><td>成交</td><td>买</td><td>0.01</td><td>1929.19</td><td>2</td><td></td></tr>
+<tr><td>2023-08-08 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1927.57</td><td>4</td><td></td></tr>
+<tr><td>2023-08-08 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1927.66</td><td>1</td><td></td></tr>
+<tr><td>2023-08-08 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1925.66</td><td>2</td><td></td></tr>
+<tr><td>2023-08-08 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1927.66</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-08 13:00</td><td>成交</td><td>买</td><td>0.01</td><td>1923.21</td><td>5</td><td></td></tr>
+<tr><td>2023-08-08 13:00</td><td>成交</td><td>买</td><td>0.01</td><td>1923.66</td><td>3</td><td></td></tr>
+<tr><td>2023-08-08 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1931.57</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-08 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1931.19</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-08 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1929.57</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-08 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1929.66</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-08 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1925.21</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-08 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1925.66</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-08 16:00</td><td>成交</td><td>买</td><td>0.01</td><td>1924.64</td><td>1</td><td></td></tr>
+<tr><td>2023-08-09 01:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1926.64</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-09 11:00</td><td>成交</td><td>买</td><td>0.01</td><td>1924.22</td><td>1</td><td></td></tr>
+<tr><td>2023-08-09 12:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1926.22</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-09 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1922.64</td><td>2</td><td></td></tr>
+<tr><td>2023-08-09 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1924.64</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-09 13:00</td><td>成交</td><td>买</td><td>0.01</td><td>1922.61</td><td>1</td><td></td></tr>
+<tr><td>2023-08-09 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1924.61</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-09 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1920.64</td><td>3</td><td></td></tr>
+<tr><td>2023-08-09 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1918.64</td><td>4</td><td></td></tr>
+<tr><td>2023-08-09 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1916.64</td><td>5</td><td></td></tr>
+<tr><td>2023-08-09 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1920.61</td><td>2</td><td></td></tr>
+<tr><td>2023-08-09 15:00</td><td>成交</td><td>买</td><td>0.01</td><td>1917.99</td><td>1</td><td></td></tr>
+<tr><td>2023-08-09 15:00</td><td>成交</td><td>买</td><td>0.01</td><td>1915.99</td><td>2</td><td></td></tr>
+<tr><td>2023-08-09 16:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1917.99</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-09 20:00</td><td>成交</td><td>买</td><td>0.01</td><td>1913.99</td><td>3</td><td></td></tr>
+<tr><td>2023-08-09 22:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1915.99</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-10 01:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1918.64</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-10 07:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1919.99</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-10 08:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1920.64</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-10 11:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1922.61</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-10 12:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1922.64</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-10 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1917.26</td><td>1</td><td></td></tr>
+<tr><td>2023-08-10 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1915.26</td><td>2</td><td></td></tr>
+<tr><td>2023-08-10 15:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1919.26</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-10 15:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1917.26</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-10 15:00</td><td>成交</td><td>买</td><td>0.01</td><td>1913.26</td><td>3</td><td></td></tr>
+<tr><td>2023-08-10 16:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1915.26</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-10 17:00</td><td>成交</td><td>买</td><td>0.01</td><td>1915.38</td><td>1</td><td></td></tr>
+<tr><td>2023-08-10 17:00</td><td>成交</td><td>买</td><td>0.01</td><td>1913.38</td><td>2</td><td></td></tr>
+<tr><td>2023-08-10 20:00</td><td>成交</td><td>买</td><td>0.01</td><td>1911.99</td><td>4</td><td></td></tr>
+<tr><td>2023-08-10 23:00</td><td>成交</td><td>买</td><td>0.01</td><td>1911.38</td><td>3</td><td></td></tr>
+<tr><td>2023-08-11 00:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1913.99</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-11 00:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1913.38</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-11 01:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1915.38</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-11 06:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1917.38</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-14 00:00</td><td>成交</td><td>买</td><td>0.01</td><td>1911.45</td><td>1</td><td></td></tr>
+<tr><td>2023-08-14 01:00</td><td>成交</td><td>买</td><td>0.01</td><td>1909.99</td><td>5</td><td></td></tr>
+<tr><td>2023-08-14 02:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1911.99</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-14 03:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1913.45</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-14 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1909.45</td><td>2</td><td></td></tr>
+<tr><td>2023-08-14 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1907.45</td><td>3</td><td></td></tr>
+<tr><td>2023-08-14 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1909.7</td><td>1</td><td></td></tr>
+<tr><td>2023-08-14 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1909.45</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-14 13:00</td><td>成交</td><td>买</td><td>0.01</td><td>1905.45</td><td>4</td><td></td></tr>
+<tr><td>2023-08-14 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1911.45</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-14 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1907.45</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-14 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1905.2</td><td>1</td><td></td></tr>
+<tr><td>2023-08-14 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1903.2</td><td>2</td><td></td></tr>
+<tr><td>2023-08-14 15:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1907.2</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-14 15:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1905.2</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-14 16:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1911.7</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-14 19:00</td><td>成交</td><td>买</td><td>0.01</td><td>1907.51</td><td>1</td><td></td></tr>
+<tr><td>2023-08-14 23:00</td><td>成交</td><td>买</td><td>0.01</td><td>1905.51</td><td>2</td><td></td></tr>
+<tr><td>2023-08-15 00:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1907.51</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-15 01:00</td><td>成交</td><td>买</td><td>0.01</td><td>1905.27</td><td>1</td><td></td></tr>
+<tr><td>2023-08-15 03:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1907.27</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-15 08:00</td><td>成交</td><td>买</td><td>0.01</td><td>1903.27</td><td>2</td><td></td></tr>
+<tr><td>2023-08-15 12:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1905.27</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-15 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1901.7</td><td>5</td><td></td></tr>
+<tr><td>2023-08-15 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1901.2</td><td>3</td><td></td></tr>
+<tr><td>2023-08-15 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1899.2</td><td>4</td><td></td></tr>
+<tr><td>2023-08-15 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1903.7</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-15 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1903.2</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-15 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1901.2</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-15 13:00</td><td>成交</td><td>买</td><td>0.01</td><td>1901.75</td><td>1</td><td></td></tr>
+<tr><td>2023-08-15 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1909.51</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-15 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1903.75</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-15 16:00</td><td>成交</td><td>买</td><td>0.01</td><td>1904.78</td><td>1</td><td></td></tr>
+<tr><td>2023-08-16 09:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1906.78</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-16 11:00</td><td>成交</td><td>买</td><td>0.01</td><td>1903.64</td><td>1</td><td></td></tr>
+<tr><td>2023-08-16 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1905.64</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-16 13:00</td><td>成交</td><td>买</td><td>0.01</td><td>1899.75</td><td>2</td><td></td></tr>
+<tr><td>2023-08-16 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1901.75</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-16 16:00</td><td>成交</td><td>买</td><td>0.01</td><td>1900.36</td><td>1</td><td></td></tr>
+<tr><td>2023-08-16 17:00</td><td>成交</td><td>买</td><td>0.01</td><td>1897.75</td><td>3</td><td></td></tr>
+<tr><td>2023-08-16 17:00</td><td>成交</td><td>买</td><td>0.01</td><td>1898.36</td><td>2</td><td></td></tr>
+<tr><td>2023-08-16 18:00</td><td>成交</td><td>买</td><td>0.01</td><td>1895.75</td><td>4</td><td></td></tr>
+<tr><td>2023-08-16 19:00</td><td>成交</td><td>买</td><td>0.01</td><td>1893.75</td><td>5</td><td></td></tr>
+<tr><td>2023-08-17 06:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1895.75</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-17 10:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1897.75</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-17 12:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1902.36</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-17 12:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1899.75</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-17 12:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1900.36</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-17 15:00</td><td>成交</td><td>买</td><td>0.01</td><td>1893.3</td><td>1</td><td></td></tr>
+<tr><td>2023-08-17 15:00</td><td>成交</td><td>买</td><td>0.01</td><td>1891.3</td><td>2</td><td></td></tr>
+<tr><td>2023-08-17 15:00</td><td>成交</td><td>买</td><td>0.01</td><td>1889.3</td><td>3</td><td></td></tr>
+<tr><td>2023-08-17 17:00</td><td>成交</td><td>买</td><td>0.01</td><td>1887.3</td><td>4</td><td></td></tr>
+<tr><td>2023-08-17 17:00</td><td>成交</td><td>买</td><td>0.01</td><td>1885.3</td><td>5</td><td></td></tr>
+<tr><td>2023-08-17 19:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1889.3</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-17 19:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1887.3</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-17 23:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1891.3</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-18 00:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1893.3</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-18 10:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1895.3</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-21 01:00</td><td>成交</td><td>买</td><td>0.01</td><td>1885.7</td><td>1</td><td></td></tr>
+<tr><td>2023-08-21 02:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1887.7</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-21 10:00</td><td>成交</td><td>买</td><td>0.01</td><td>1887.09</td><td>1</td><td></td></tr>
+<tr><td>2023-08-21 11:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1889.09</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-21 13:00</td><td>成交</td><td>买</td><td>0.01</td><td>1888.78</td><td>1</td><td></td></tr>
+<tr><td>2023-08-21 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1890.78</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-21 15:00</td><td>成交</td><td>买</td><td>0.01</td><td>1886.36</td><td>1</td><td></td></tr>
+<tr><td>2023-08-21 16:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1888.36</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-30 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1945.66</td><td>1</td><td></td></tr>
+<tr><td>2023-08-30 13:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1943.66</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-30 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1948.47</td><td>4</td><td></td></tr>
+<tr><td>2023-08-30 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1947.13</td><td>3</td><td></td></tr>
+<tr><td>2023-08-30 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1947.66</td><td>2</td><td></td></tr>
+<tr><td>2023-08-30 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1946.47</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-30 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1945.13</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-30 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1945.66</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-30 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1948.18</td><td>1</td><td></td></tr>
+<tr><td>2023-08-30 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1946.18</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-31 02:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1947.62</td><td>1</td><td></td></tr>
+<tr><td>2023-08-31 03:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1945.62</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-31 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1947.49</td><td>1</td><td></td></tr>
+<tr><td>2023-08-31 13:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1945.49</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-01 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1950.47</td><td>5</td><td></td></tr>
+<tr><td>2023-09-01 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1950.18</td><td>2</td><td></td></tr>
+<tr><td>2023-09-01 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1952.18</td><td>3</td><td></td></tr>
+<tr><td>2023-09-01 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1946.67</td><td>1</td><td></td></tr>
+<tr><td>2023-09-01 13:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1948.47</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-01 13:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1948.18</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-01 13:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1950.18</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-01 13:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1944.67</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-27 13:00</td><td>成交</td><td>买</td><td>0.01</td><td>1888.82</td><td>1</td><td></td></tr>
+<tr><td>2023-09-27 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1883.7</td><td>2</td><td></td></tr>
+<tr><td>2023-09-27 15:00</td><td>成交</td><td>买</td><td>0.01</td><td>1881.7</td><td>3</td><td></td></tr>
+<tr><td>2023-09-27 15:00</td><td>成交</td><td>买</td><td>0.01</td><td>1879.7</td><td>4</td><td></td></tr>
+<tr><td>2023-09-27 16:00</td><td>成交</td><td>买</td><td>0.01</td><td>1877.7</td><td>5</td><td></td></tr>
+<tr><td>2023-09-29 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1879.7</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-29 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1870.1</td><td>1</td><td></td></tr>
+<tr><td>2023-09-29 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1868.1</td><td>2</td><td></td></tr>
+<tr><td>2023-09-29 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1866.1</td><td>3</td><td></td></tr>
+<tr><td>2023-09-29 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1864.1</td><td>4</td><td></td></tr>
+<tr><td>2023-09-29 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1862.1</td><td>5</td><td></td></tr>
+<tr><td>2023-10-10 00:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1864.1</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-11 07:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1868.1</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-11 07:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1866.1</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-11 09:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1870.1</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-11 10:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1872.1</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-11 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1870.12</td><td>1</td><td></td></tr>
+<tr><td>2023-10-11 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1868.12</td><td>2</td><td></td></tr>
+<tr><td>2023-10-11 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1872.12</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-11 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1870.12</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-12 06:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1881.7</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-12 11:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1883.7</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-13 09:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1885.7</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-13 11:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1890.82</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-18 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1948.76</td><td>1</td><td></td></tr>
+<tr><td>2023-10-18 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1954.18</td><td>4</td><td></td></tr>
+<tr><td>2023-10-18 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1950.76</td><td>2</td><td></td></tr>
+<tr><td>2023-10-18 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1952.76</td><td>3</td><td></td></tr>
+<tr><td>2023-10-18 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1956.76</td><td>5</td><td></td></tr>
+<tr><td>2023-10-18 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1946.76</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-18 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1952.18</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-18 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1948.76</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-18 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1950.76</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-18 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1954.76</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-18 17:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1953.97</td><td>1</td><td></td></tr>
+<tr><td>2023-10-18 17:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1955.97</td><td>2</td><td></td></tr>
+<tr><td>2023-10-18 18:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1951.97</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-18 18:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1953.97</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-19 08:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1954.21</td><td>1</td><td></td></tr>
+<tr><td>2023-10-19 09:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1952.21</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-19 11:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1952.13</td><td>1</td><td></td></tr>
+<tr><td>2023-10-19 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1956.21</td><td>2</td><td></td></tr>
+<tr><td>2023-10-19 13:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1950.13</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-19 13:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1954.21</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-19 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1957.97</td><td>3</td><td></td></tr>
+<tr><td>2023-10-19 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1956.46</td><td>1</td><td></td></tr>
+<tr><td>2023-10-19 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1958.46</td><td>2</td><td></td></tr>
+<tr><td>2023-10-19 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1955.97</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-19 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1954.46</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-19 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1956.46</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-19 16:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1959.97</td><td>4</td><td></td></tr>
+<tr><td>2023-10-19 16:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1961.97</td><td>5</td><td></td></tr>
+<tr><td>2023-10-19 17:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1960.99</td><td>1</td><td></td></tr>
+<tr><td>2023-10-19 17:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1962.99</td><td>2</td><td></td></tr>
+<tr><td>2023-10-19 17:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1964.99</td><td>3</td><td></td></tr>
+<tr><td>2023-10-19 17:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1966.99</td><td>4</td><td></td></tr>
+<tr><td>2023-10-19 17:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1968.99</td><td>5</td><td></td></tr>
+<tr><td>2023-10-22 22:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1964.99</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-22 22:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1966.99</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-24 10:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1960.99</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-24 10:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1962.99</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-24 11:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1957.97</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-24 11:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1959.97</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-24 11:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1958.99</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-24 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1966.07</td><td>1</td><td></td></tr>
+<tr><td>2023-10-24 13:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1964.07</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-24 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1968.07</td><td>2</td><td></td></tr>
+<tr><td>2023-10-24 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1966.62</td><td>1</td><td></td></tr>
+<tr><td>2023-10-24 16:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1970.07</td><td>3</td><td></td></tr>
+<tr><td>2023-10-24 16:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1972.07</td><td>4</td><td></td></tr>
+<tr><td>2023-10-24 16:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1974.07</td><td>5</td><td></td></tr>
+<tr><td>2023-10-24 18:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1972.07</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-24 22:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1970.07</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-25 01:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1976.72</td><td>1</td><td></td></tr>
+<tr><td>2023-10-25 02:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1974.72</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-25 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1978.72</td><td>2</td><td></td></tr>
+<tr><td>2023-10-25 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1980.72</td><td>3</td><td></td></tr>
+<tr><td>2023-10-25 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1982.72</td><td>4</td><td></td></tr>
+<tr><td>2023-10-25 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1984.72</td><td>5</td><td></td></tr>
+<tr><td>2023-10-25 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1976.72</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-25 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1978.72</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-25 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1980.72</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-25 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1982.72</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-25 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1966.07</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-25 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1964.62</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-25 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1968.07</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-25 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1982.99</td><td>1</td><td></td></tr>
+<tr><td>2023-10-25 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1980.99</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-25 17:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1984.99</td><td>2</td><td></td></tr>
+<tr><td>2023-10-25 17:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1981.59</td><td>1</td><td></td></tr>
+<tr><td>2023-10-25 18:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1982.99</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-25 20:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1979.59</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-26 00:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1984.26</td><td>1</td><td></td></tr>
+<tr><td>2023-10-26 01:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1986.26</td><td>2</td><td></td></tr>
+<tr><td>2023-10-26 03:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1984.26</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-26 03:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1986.99</td><td>3</td><td></td></tr>
+<tr><td>2023-10-26 04:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1988.99</td><td>4</td><td></td></tr>
+<tr><td>2023-10-26 04:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1987.94</td><td>1</td><td></td></tr>
+<tr><td>2023-10-26 05:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1984.99</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-26 05:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1986.99</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-26 05:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1985.94</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-26 07:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1989.94</td><td>2</td><td></td></tr>
+<tr><td>2023-10-26 07:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1989.03</td><td>1</td><td></td></tr>
+<tr><td>2023-10-26 08:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1990.99</td><td>5</td><td></td></tr>
+<tr><td>2023-10-26 08:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1991.94</td><td>3</td><td></td></tr>
+<tr><td>2023-10-26 09:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1989.94</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-26 10:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1987.94</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-26 10:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1987.03</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-26 10:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1988.99</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-26 12:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1982.26</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-27 17:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1995.03</td><td>4</td><td></td></tr>
+<tr><td>2023-10-27 17:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1990.58</td><td>1</td><td></td></tr>
+<tr><td>2023-10-27 17:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1992.58</td><td>2</td><td></td></tr>
+<tr><td>2023-10-27 17:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1994.58</td><td>3</td><td></td></tr>
+<tr><td>2023-10-27 18:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1998.58</td><td>5</td><td></td></tr>
+<tr><td>2023-10-30 06:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1996.58</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-30 08:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1993.03</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-30 08:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1992.58</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-30 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1999.51</td><td>1</td><td></td></tr>
+<tr><td>2023-10-30 13:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1997.51</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-30 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2001.51</td><td>2</td><td></td></tr>
+<tr><td>2023-10-30 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1999.51</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-31 04:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1990.58</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-31 05:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1994.37</td><td>1</td><td></td></tr>
+<tr><td>2023-10-31 06:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1992.37</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-31 07:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1996.37</td><td>2</td><td></td></tr>
+<tr><td>2023-10-31 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2003.51</td><td>3</td><td></td></tr>
+<tr><td>2023-10-31 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2001.51</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-31 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2005.51</td><td>4</td><td></td></tr>
+<tr><td>2023-10-31 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2007.51</td><td>5</td><td></td></tr>
+<tr><td>2023-10-31 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1994.37</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-31 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2003.51</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-31 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2005.51</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-31 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1988.58</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-11-03 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2002.68</td><td>1</td><td></td></tr>
+<tr><td>2023-11-03 13:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2000.68</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-11-21 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1999.63</td><td>1</td><td></td></tr>
+<tr><td>2023-11-21 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1997.63</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-11-21 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2004.68</td><td>2</td><td></td></tr>
+<tr><td>2023-11-21 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2006.68</td><td>3</td><td></td></tr>
+<tr><td>2023-11-21 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2004.68</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-11-21 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2003.39</td><td>1</td><td></td></tr>
+<tr><td>2023-11-21 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2005.39</td><td>2</td><td></td></tr>
+<tr><td>2023-11-21 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2007.39</td><td>3</td><td></td></tr>
+<tr><td>2023-11-21 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2002.68</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-11-21 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2001.39</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-11-21 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2003.39</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-11-21 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2005.39</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-11-22 08:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2004.6</td><td>1</td><td></td></tr>
+<tr><td>2023-11-22 09:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2002.6</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-11-22 11:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2002.81</td><td>1</td><td></td></tr>
+<tr><td>2023-11-22 12:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2000.81</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-11-24 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2003.16</td><td>1</td><td></td></tr>
+<tr><td>2023-11-24 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2001.16</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-11-24 17:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2001.04</td><td>1</td><td></td></tr>
+<tr><td>2023-11-27 01:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2008.68</td><td>4</td><td></td></tr>
+<tr><td>2023-11-27 01:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2010.68</td><td>5</td><td></td></tr>
+<tr><td>2023-11-27 01:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2006.6</td><td>2</td><td></td></tr>
+<tr><td>2023-11-27 01:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2008.6</td><td>3</td><td></td></tr>
+<tr><td>2023-11-27 02:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2008.68</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-11-27 04:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2013.61</td><td>1</td><td></td></tr>
+<tr><td>2023-11-27 05:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2011.61</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-11-27 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2015.61</td><td>2</td><td></td></tr>
+<tr><td>2023-11-27 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2013.61</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-11-27 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2006.68</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-11-27 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2006.6</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-11-28 00:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2017.61</td><td>3</td><td></td></tr>
+<tr><td>2023-11-28 01:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2015.61</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-11-28 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2019.61</td><td>4</td><td></td></tr>
+<tr><td>2023-11-28 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2018.15</td><td>1</td><td></td></tr>
+<tr><td>2023-11-28 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2020.15</td><td>2</td><td></td></tr>
+<tr><td>2023-11-28 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2021.61</td><td>5</td><td></td></tr>
+<tr><td>2023-11-28 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2022.15</td><td>3</td><td></td></tr>
+<tr><td>2023-12-04 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2020.15</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-05 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2017.61</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-05 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2016.15</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-05 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2018.15</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-05 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2019.61</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-05 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2025.03</td><td>1</td><td></td></tr>
+<tr><td>2023-12-05 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2023.03</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-06 07:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2027.03</td><td>2</td><td></td></tr>
+<tr><td>2023-12-06 07:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2029.03</td><td>3</td><td></td></tr>
+<tr><td>2023-12-06 07:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2031.03</td><td>4</td><td></td></tr>
+<tr><td>2023-12-06 07:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2033.03</td><td>5</td><td></td></tr>
+<tr><td>2023-12-06 08:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2025.03</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-06 08:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2027.03</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-06 08:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2029.03</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-06 08:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2031.03</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-06 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2031.63</td><td>1</td><td></td></tr>
+<tr><td>2023-12-06 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2029.63</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-07 08:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2033.63</td><td>2</td><td></td></tr>
+<tr><td>2023-12-07 09:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2031.63</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-07 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2035.63</td><td>3</td><td></td></tr>
+<tr><td>2023-12-07 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2037.63</td><td>4</td><td></td></tr>
+<tr><td>2023-12-07 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2039.63</td><td>5</td><td></td></tr>
+<tr><td>2023-12-07 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2033.63</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-07 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2035.63</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-07 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2037.63</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-08 03:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2033.68</td><td>1</td><td></td></tr>
+<tr><td>2023-12-08 04:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2031.68</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-08 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2004.6</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-08 17:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1999.04</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-08 20:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2001.65</td><td>1</td><td></td></tr>
+<tr><td>2023-12-11 02:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1999.65</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-13 19:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2001.99</td><td>1</td><td></td></tr>
+<tr><td>2023-12-14 00:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2035.68</td><td>2</td><td></td></tr>
+<tr><td>2023-12-14 00:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2037.68</td><td>3</td><td></td></tr>
+<tr><td>2023-12-14 01:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2033.68</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-14 01:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2035.68</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-14 06:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2037.18</td><td>1</td><td></td></tr>
+<tr><td>2023-12-14 07:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2035.18</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-14 08:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2039.68</td><td>4</td><td></td></tr>
+<tr><td>2023-12-14 08:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2039.18</td><td>2</td><td></td></tr>
+<tr><td>2023-12-14 09:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2037.68</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-14 09:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2037.18</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-14 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2038.49</td><td>1</td><td></td></tr>
+<tr><td>2023-12-14 13:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2036.49</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-14 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2041.68</td><td>5</td><td></td></tr>
+<tr><td>2023-12-14 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2041.18</td><td>3</td><td></td></tr>
+<tr><td>2023-12-14 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2040.49</td><td>2</td><td></td></tr>
+<tr><td>2023-12-14 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2044.49</td><td>4</td><td></td></tr>
+<tr><td>2023-12-14 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2039.68</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-14 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2039.18</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-14 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2038.49</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-14 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2042.49</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-15 09:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2043.64</td><td>1</td><td></td></tr>
+<tr><td>2023-12-15 10:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2041.64</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-19 16:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2045.64</td><td>2</td><td></td></tr>
+<tr><td>2023-12-19 17:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2043.64</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-21 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2044.26</td><td>1</td><td></td></tr>
+<tr><td>2023-12-21 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2042.26</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-21 23:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2047.64</td><td>3</td><td></td></tr>
+<tr><td>2023-12-21 23:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2049.64</td><td>4</td><td></td></tr>
+<tr><td>2023-12-21 23:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2051.64</td><td>5</td><td></td></tr>
+<tr><td>2023-12-21 23:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2046.26</td><td>2</td><td></td></tr>
+<tr><td>2023-12-22 00:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2047.64</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-22 00:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2049.64</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-22 09:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2052.38</td><td>1</td><td></td></tr>
+<tr><td>2023-12-22 09:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2054.38</td><td>2</td><td></td></tr>
+<tr><td>2023-12-22 10:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2056.38</td><td>3</td><td></td></tr>
+<tr><td>2023-12-22 11:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2058.38</td><td>4</td><td></td></tr>
+<tr><td>2023-12-22 11:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2060.38</td><td>5</td><td></td></tr>
+<tr><td>2023-12-22 13:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2058.38</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-22 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2052.38</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-22 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2054.38</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-22 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2056.38</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-26 01:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2058.94</td><td>1</td><td></td></tr>
+<tr><td>2023-12-26 01:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2060.94</td><td>2</td><td></td></tr>
+<tr><td>2023-12-26 01:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2062.94</td><td>3</td><td></td></tr>
+<tr><td>2023-12-26 02:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2064.94</td><td>4</td><td></td></tr>
+<tr><td>2023-12-26 05:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2062.94</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-26 09:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2060.94</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-26 13:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2058.94</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-26 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2056.94</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-26 20:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2066.94</td><td>5</td><td></td></tr>
+<tr><td>2023-12-27 00:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2064.94</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-27 01:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2067.75</td><td>1</td><td></td></tr>
+<tr><td>2023-12-27 02:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2065.75</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-27 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2069.75</td><td>2</td><td></td></tr>
+<tr><td>2023-12-27 13:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2067.75</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-27 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2071.75</td><td>3</td><td></td></tr>
+<tr><td>2023-12-27 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2073.75</td><td>4</td><td></td></tr>
+<tr><td>2023-12-27 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2075.75</td><td>5</td><td></td></tr>
+<tr><td>2023-12-28 09:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2073.75</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-28 12:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2071.75</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-28 19:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2069.75</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-29 06:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2072.3</td><td>1</td><td></td></tr>
+<tr><td>2023-12-29 07:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2074.3</td><td>2</td><td></td></tr>
+<tr><td>2023-12-29 08:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2070.3</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-12-29 08:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2072.3</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-01-02 06:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2076.3</td><td>3</td><td></td></tr>
+<tr><td>2024-01-02 07:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2074.3</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-01-02 09:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2078.3</td><td>4</td><td></td></tr>
+<tr><td>2024-01-02 10:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2076.3</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-01-03 11:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2050.38</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-01-03 12:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2045.64</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-01-03 12:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2044.26</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-01-05 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2053.14</td><td>1</td><td></td></tr>
+<tr><td>2024-01-05 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2055.14</td><td>2</td><td></td></tr>
+<tr><td>2024-01-05 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2057.14</td><td>3</td><td></td></tr>
+<tr><td>2024-01-05 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2059.14</td><td>4</td><td></td></tr>
+<tr><td>2024-01-05 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2051.14</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-01-05 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2053.14</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-01-05 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2055.14</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-01-05 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2057.14</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-01-12 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2051.88</td><td>1</td><td></td></tr>
+<tr><td>2024-01-12 13:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2049.88</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-01-12 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2053.88</td><td>2</td><td></td></tr>
+<tr><td>2024-01-12 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2055.88</td><td>3</td><td></td></tr>
+<tr><td>2024-01-12 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2053.88</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-01-12 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2057.88</td><td>4</td><td></td></tr>
+<tr><td>2024-01-12 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2051.88</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-01-12 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2055.88</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-01-12 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2057.89</td><td>1</td><td></td></tr>
+<tr><td>2024-01-12 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2059.89</td><td>2</td><td></td></tr>
+<tr><td>2024-01-12 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2055.89</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-01-12 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2057.89</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-01-15 02:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2052.93</td><td>1</td><td></td></tr>
+<tr><td>2024-01-15 02:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2054.93</td><td>2</td><td></td></tr>
+<tr><td>2024-01-15 05:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2052.93</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-01-15 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2050.93</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-01-15 16:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2054.57</td><td>1</td><td></td></tr>
+<tr><td>2024-01-16 00:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2052.57</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-02-01 16:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2061.89</td><td>3</td><td></td></tr>
+<tr><td>2024-02-01 16:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2063.89</td><td>4</td><td></td></tr>
+<tr><td>2024-02-01 16:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2056.57</td><td>2</td><td></td></tr>
+<tr><td>2024-02-01 17:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2059.89</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-02-01 17:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2061.89</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-02-01 17:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>2054.57</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-02-13 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1999.99</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2024-03-01 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2058.8</td><td>1</td><td></td></tr>
+<tr><td>2024-03-01 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2060.8</td><td>2</td><td></td></tr>
+<tr><td>2024-03-01 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2062.8</td><td>3</td><td></td></tr>
+<tr><td>2024-03-01 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2064.8</td><td>4</td><td></td></tr>
+<tr><td>2024-03-01 16:00</td><td>成交</td><td>卖</td><td>0.01</td><td>2080.3</td><td>5</td><td></td></tr>
+<tr><td>2024-04-01 02:00</td><td class="neg">强平</td><td>卖</td><td>0.01</td><td>2256.54</td><td></td><td class="neg">-197.74</td></tr>
+<tr><td>2024-04-01 02:00</td><td class="neg">强平</td><td>卖</td><td>0.01</td><td>2256.54</td><td></td><td class="neg">-195.74</td></tr>
+<tr><td>2024-04-01 02:00</td><td class="neg">强平</td><td>卖</td><td>0.01</td><td>2256.54</td><td></td><td class="neg">-193.74</td></tr>
+<tr><td>2024-04-01 02:00</td><td class="neg">强平</td><td>卖</td><td>0.01</td><td>2256.54</td><td></td><td class="neg">-191.74</td></tr>
+<tr><td>2024-04-01 02:00</td><td class="neg">强平</td><td>卖</td><td>0.01</td><td>2256.54</td><td></td><td class="neg">-176.24</td></tr>
+</table>
+  </div>
+
+  <h2>二、News Adapter 交易日志（364 笔）</h2>
+  <h3>按月汇总</h3>
+  <table class="summary">
+<tr><th>月份</th><th>合计</th><th>成交</th><th>止盈</th><th>强平</th><th>盈亏(USD)</th></tr>
+<tr><td>2023-07</td><td>51</td><td>28</td><td>23</td><td>0</td><td>46.0</td></tr>
+<tr><td>2023-08</td><td>161</td><td>81</td><td>80</td><td>0</td><td>157.6</td></tr>
+<tr><td>2023-09</td><td>78</td><td>39</td><td>39</td><td>0</td><td>77.2</td></tr>
+<tr><td>2023-10</td><td>74</td><td>34</td><td>34</td><td>6</td><td>-778.4</td></tr>
+</table>
+  <h3>全部明细</h3>
+  <div class="scroll">
+  <table class="log">
+<tr><th>时间(UTC)</th><th>动作</th><th>方向</th><th>手数</th><th>价格</th><th>层</th><th>盈亏</th></tr>
+<tr><td>2023-07-12 00:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1935.21</td><td>1</td><td></td></tr>
+<tr><td>2023-07-12 01:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1937.21</td><td>2</td><td></td></tr>
+<tr><td>2023-07-12 02:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1939.21</td><td>3</td><td></td></tr>
+<tr><td>2023-07-12 06:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1935.21</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-12 06:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1937.21</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-12 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1941.21</td><td>4</td><td></td></tr>
+<tr><td>2023-07-12 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1943.21</td><td>5</td><td></td></tr>
+<tr><td>2023-07-12 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1938.68</td><td>1</td><td></td></tr>
+<tr><td>2023-07-12 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1940.68</td><td>2</td><td></td></tr>
+<tr><td>2023-07-12 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1942.68</td><td>3</td><td></td></tr>
+<tr><td>2023-07-12 13:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1941.21</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-14 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1956.65</td><td>1</td><td></td></tr>
+<tr><td>2023-07-14 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1954.65</td><td>2</td><td></td></tr>
+<tr><td>2023-07-14 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1952.65</td><td>3</td><td></td></tr>
+<tr><td>2023-07-14 15:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1958.65</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-14 15:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1956.65</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-14 15:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1954.65</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-14 16:00</td><td>成交</td><td>买</td><td>0.01</td><td>1957.09</td><td>1</td><td></td></tr>
+<tr><td>2023-07-14 17:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1959.09</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-14 19:00</td><td>成交</td><td>买</td><td>0.01</td><td>1955.09</td><td>2</td><td></td></tr>
+<tr><td>2023-07-14 19:00</td><td>成交</td><td>买</td><td>0.01</td><td>1957.57</td><td>1</td><td></td></tr>
+<tr><td>2023-07-16 22:00</td><td>成交</td><td>买</td><td>0.01</td><td>1953.09</td><td>3</td><td></td></tr>
+<tr><td>2023-07-17 01:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1955.09</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-17 02:00</td><td>成交</td><td>买</td><td>0.01</td><td>1951.56</td><td>1</td><td></td></tr>
+<tr><td>2023-07-17 03:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1953.56</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-17 07:00</td><td>成交</td><td>买</td><td>0.01</td><td>1950.65</td><td>4</td><td></td></tr>
+<tr><td>2023-07-17 08:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1957.09</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-17 08:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1952.65</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-17 10:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1959.57</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-17 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1948.65</td><td>5</td><td></td></tr>
+<tr><td>2023-07-17 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1949.56</td><td>2</td><td></td></tr>
+<tr><td>2023-07-17 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1951.96</td><td>1</td><td></td></tr>
+<tr><td>2023-07-17 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1950.65</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-17 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1951.56</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-17 13:00</td><td>成交</td><td>买</td><td>0.01</td><td>1947.56</td><td>3</td><td></td></tr>
+<tr><td>2023-07-17 13:00</td><td>成交</td><td>买</td><td>0.01</td><td>1945.96</td><td>4</td><td></td></tr>
+<tr><td>2023-07-17 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1953.96</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-17 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1949.56</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-17 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1947.96</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-30 23:00</td><td>成交</td><td>买</td><td>0.01</td><td>1957.23</td><td>1</td><td></td></tr>
+<tr><td>2023-07-31 03:00</td><td>成交</td><td>买</td><td>0.01</td><td>1955.23</td><td>2</td><td></td></tr>
+<tr><td>2023-07-31 05:00</td><td>成交</td><td>买</td><td>0.01</td><td>1953.23</td><td>3</td><td></td></tr>
+<tr><td>2023-07-31 06:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1955.23</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-31 08:00</td><td>成交</td><td>买</td><td>0.01</td><td>1951.23</td><td>4</td><td></td></tr>
+<tr><td>2023-07-31 08:00</td><td>成交</td><td>买</td><td>0.01</td><td>1952.9</td><td>1</td><td></td></tr>
+<tr><td>2023-07-31 08:00</td><td>成交</td><td>买</td><td>0.01</td><td>1950.9</td><td>2</td><td></td></tr>
+<tr><td>2023-07-31 09:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1953.23</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-31 09:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1954.9</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-31 09:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1952.9</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-31 10:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1957.23</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-07-31 11:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1959.23</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-01 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1949.23</td><td>5</td><td></td></tr>
+<tr><td>2023-08-01 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1948.9</td><td>3</td><td></td></tr>
+<tr><td>2023-08-01 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1953.06</td><td>1</td><td></td></tr>
+<tr><td>2023-08-01 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1951.06</td><td>2</td><td></td></tr>
+<tr><td>2023-08-01 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1947.06</td><td>4</td><td></td></tr>
+<tr><td>2023-08-01 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1951.23</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-01 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1950.9</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-01 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1953.06</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-01 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1949.06</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-01 15:00</td><td>成交</td><td>买</td><td>0.01</td><td>1945.53</td><td>1</td><td></td></tr>
+<tr><td>2023-08-01 15:00</td><td>成交</td><td>买</td><td>0.01</td><td>1943.53</td><td>2</td><td></td></tr>
+<tr><td>2023-08-01 15:00</td><td>成交</td><td>买</td><td>0.01</td><td>1941.53</td><td>3</td><td></td></tr>
+<tr><td>2023-08-01 16:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1943.53</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-01 22:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1947.53</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-01 22:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1945.53</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-02 00:00</td><td>成交</td><td>买</td><td>0.01</td><td>1948.29</td><td>1</td><td></td></tr>
+<tr><td>2023-08-02 04:00</td><td>成交</td><td>买</td><td>0.01</td><td>1946.29</td><td>2</td><td></td></tr>
+<tr><td>2023-08-02 05:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1948.29</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-02 06:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1950.29</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-02 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1944.29</td><td>3</td><td></td></tr>
+<tr><td>2023-08-02 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1946.89</td><td>1</td><td></td></tr>
+<tr><td>2023-08-02 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1944.89</td><td>2</td><td></td></tr>
+<tr><td>2023-08-02 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1946.29</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-02 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1946.89</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-02 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1939.21</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-02 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1936.68</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-02 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1938.68</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-02 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1940.68</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-02 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1939.53</td><td>4</td><td></td></tr>
+<tr><td>2023-08-02 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1937.53</td><td>5</td><td></td></tr>
+<tr><td>2023-08-02 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1943.27</td><td>1</td><td></td></tr>
+<tr><td>2023-08-02 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1941.27</td><td>2</td><td></td></tr>
+<tr><td>2023-08-02 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1939.27</td><td>3</td><td></td></tr>
+<tr><td>2023-08-02 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1933.21</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-04 12:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1941.53</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-04 12:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1939.53</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-04 12:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1941.27</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-04 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1942.47</td><td>1</td><td></td></tr>
+<tr><td>2023-08-04 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1944.47</td><td></td><td class="pos">+1.20</td></tr>
+<tr><td>2023-08-04 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1942.47</td><td></td><td class="pos">+1.20</td></tr>
+<tr><td>2023-08-04 13:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1941.27</td><td></td><td class="pos">+1.20</td></tr>
+<tr><td>2023-08-07 00:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1944.82</td><td>1</td><td></td></tr>
+<tr><td>2023-08-07 01:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1942.82</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-07 02:00</td><td>成交</td><td>买</td><td>0.01</td><td>1940.82</td><td>1</td><td></td></tr>
+<tr><td>2023-08-07 03:00</td><td>成交</td><td>买</td><td>0.01</td><td>1938.82</td><td>2</td><td></td></tr>
+<tr><td>2023-08-07 05:00</td><td>成交</td><td>买</td><td>0.01</td><td>1936.82</td><td>3</td><td></td></tr>
+<tr><td>2023-08-07 08:00</td><td>成交</td><td>买</td><td>0.01</td><td>1934.82</td><td>4</td><td></td></tr>
+<tr><td>2023-08-07 09:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1936.82</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-07 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1940.82</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-07 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1938.82</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-07 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1932.82</td><td>5</td><td></td></tr>
+<tr><td>2023-08-07 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1933.78</td><td>1</td><td></td></tr>
+<tr><td>2023-08-07 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1931.78</td><td>2</td><td></td></tr>
+<tr><td>2023-08-07 15:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1934.82</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-07 15:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1933.78</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-07 17:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1935.78</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-08 11:00</td><td>成交</td><td>买</td><td>0.01</td><td>1929.78</td><td>3</td><td></td></tr>
+<tr><td>2023-08-08 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1927.78</td><td>4</td><td></td></tr>
+<tr><td>2023-08-08 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1931.78</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-08 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1929.78</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-08 16:00</td><td>成交</td><td>买</td><td>0.01</td><td>1924.64</td><td>1</td><td></td></tr>
+<tr><td>2023-08-09 01:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1926.64</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-09 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1922.64</td><td>2</td><td></td></tr>
+<tr><td>2023-08-09 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1924.64</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-09 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1920.64</td><td>3</td><td></td></tr>
+<tr><td>2023-08-09 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1918.64</td><td>4</td><td></td></tr>
+<tr><td>2023-08-09 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1916.64</td><td>5</td><td></td></tr>
+<tr><td>2023-08-10 01:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1918.64</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-10 08:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1920.64</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-10 12:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1922.64</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-10 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1917.26</td><td>1</td><td></td></tr>
+<tr><td>2023-08-10 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1915.26</td><td>2</td><td></td></tr>
+<tr><td>2023-08-10 15:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1919.26</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-10 15:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1917.26</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-10 15:00</td><td>成交</td><td>买</td><td>0.01</td><td>1913.26</td><td>3</td><td></td></tr>
+<tr><td>2023-08-10 16:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1915.26</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-10 23:00</td><td>成交</td><td>买</td><td>0.01</td><td>1911.26</td><td>4</td><td></td></tr>
+<tr><td>2023-08-11 00:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1913.26</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-14 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1905.2</td><td>1</td><td></td></tr>
+<tr><td>2023-08-14 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1903.2</td><td>2</td><td></td></tr>
+<tr><td>2023-08-14 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1909.2</td><td>1</td><td></td></tr>
+<tr><td>2023-08-14 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1911.2</td><td>2</td><td></td></tr>
+<tr><td>2023-08-14 15:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1907.2</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-14 15:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1905.2</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-14 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1909.2</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-14 16:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1911.51</td><td>1</td><td></td></tr>
+<tr><td>2023-08-14 18:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1909.51</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-14 19:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1907.2</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-15 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1901.2</td><td>3</td><td></td></tr>
+<tr><td>2023-08-15 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1899.2</td><td>4</td><td></td></tr>
+<tr><td>2023-08-15 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1897.2</td><td>5</td><td></td></tr>
+<tr><td>2023-08-15 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1903.2</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-15 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1901.2</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-15 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1899.2</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-15 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1909.72</td><td>1</td><td></td></tr>
+<tr><td>2023-08-15 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1907.72</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-15 20:00</td><td>成交</td><td>买</td><td>0.01</td><td>1901.51</td><td>1</td><td></td></tr>
+<tr><td>2023-08-16 01:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1903.51</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-16 13:00</td><td>成交</td><td>买</td><td>0.01</td><td>1899.51</td><td>2</td><td></td></tr>
+<tr><td>2023-08-16 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1901.51</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-16 17:00</td><td>成交</td><td>买</td><td>0.01</td><td>1897.51</td><td>3</td><td></td></tr>
+<tr><td>2023-08-16 18:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1899.51</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-16 18:00</td><td>成交</td><td>买</td><td>0.01</td><td>1895.51</td><td>4</td><td></td></tr>
+<tr><td>2023-08-16 19:00</td><td>成交</td><td>买</td><td>0.01</td><td>1893.51</td><td>5</td><td></td></tr>
+<tr><td>2023-08-17 06:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1895.51</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-17 10:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1897.51</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-17 15:00</td><td>成交</td><td>买</td><td>0.01</td><td>1893.3</td><td>1</td><td></td></tr>
+<tr><td>2023-08-17 15:00</td><td>成交</td><td>买</td><td>0.01</td><td>1891.3</td><td>2</td><td></td></tr>
+<tr><td>2023-08-17 15:00</td><td>成交</td><td>买</td><td>0.01</td><td>1889.3</td><td>3</td><td></td></tr>
+<tr><td>2023-08-17 17:00</td><td>成交</td><td>买</td><td>0.01</td><td>1887.3</td><td>4</td><td></td></tr>
+<tr><td>2023-08-17 17:00</td><td>成交</td><td>买</td><td>0.01</td><td>1885.3</td><td>5</td><td></td></tr>
+<tr><td>2023-08-17 19:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1889.3</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-17 19:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1887.3</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-17 23:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1891.3</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-18 00:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1893.3</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-18 10:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1895.3</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-18 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1890.22</td><td>1</td><td></td></tr>
+<tr><td>2023-08-18 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1892.22</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-18 17:00</td><td>成交</td><td>买</td><td>0.01</td><td>1888.22</td><td>2</td><td></td></tr>
+<tr><td>2023-08-20 22:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1890.22</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-21 01:00</td><td>成交</td><td>买</td><td>0.01</td><td>1886.22</td><td>3</td><td></td></tr>
+<tr><td>2023-08-21 02:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1888.22</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-23 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1913.2</td><td>3</td><td></td></tr>
+<tr><td>2023-08-23 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1915.2</td><td>4</td><td></td></tr>
+<tr><td>2023-08-23 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1917.2</td><td>5</td><td></td></tr>
+<tr><td>2023-08-23 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1913.51</td><td>2</td><td></td></tr>
+<tr><td>2023-08-23 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1910.43</td><td>1</td><td></td></tr>
+<tr><td>2023-08-23 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1915.2</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-23 16:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1918.7</td><td>1</td><td></td></tr>
+<tr><td>2023-08-23 18:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1916.7</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-24 02:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1920.7</td><td>2</td><td></td></tr>
+<tr><td>2023-08-24 06:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1922.7</td><td>3</td><td></td></tr>
+<tr><td>2023-08-24 07:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1920.7</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-24 10:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1918.7</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-24 12:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1913.2</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-25 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1911.2</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-25 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1911.51</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-25 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1908.43</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-25 17:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1911.89</td><td>1</td><td></td></tr>
+<tr><td>2023-08-25 18:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1913.89</td><td>2</td><td></td></tr>
+<tr><td>2023-08-27 22:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1915.89</td><td>3</td><td></td></tr>
+<tr><td>2023-08-28 08:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1913.89</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-28 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1916.45</td><td>1</td><td></td></tr>
+<tr><td>2023-08-28 13:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1914.45</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-28 13:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1918.45</td><td>2</td><td></td></tr>
+<tr><td>2023-08-28 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1924.7</td><td>4</td><td></td></tr>
+<tr><td>2023-08-28 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1920.45</td><td>3</td><td></td></tr>
+<tr><td>2023-08-28 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1922.7</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-28 17:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1918.45</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-29 01:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1922.35</td><td>1</td><td></td></tr>
+<tr><td>2023-08-29 03:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1924.35</td><td>2</td><td></td></tr>
+<tr><td>2023-08-29 07:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1922.35</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-29 10:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1920.35</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-29 12:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1916.45</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-29 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1926.7</td><td>5</td><td></td></tr>
+<tr><td>2023-08-29 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1926.35</td><td>3</td><td></td></tr>
+<tr><td>2023-08-29 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1928.35</td><td>4</td><td></td></tr>
+<tr><td>2023-08-30 12:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1942.82</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-30 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1948.89</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-08-31 15:00</td><td>成交</td><td>买</td><td>0.01</td><td>1940.03</td><td>1</td><td></td></tr>
+<tr><td>2023-08-31 16:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1942.03</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-04 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1937.66</td><td>1</td><td></td></tr>
+<tr><td>2023-09-05 01:00</td><td>成交</td><td>买</td><td>0.01</td><td>1935.66</td><td>2</td><td></td></tr>
+<tr><td>2023-09-05 04:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1937.66</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-05 08:00</td><td>成交</td><td>买</td><td>0.01</td><td>1933.66</td><td>3</td><td></td></tr>
+<tr><td>2023-09-05 09:00</td><td>成交</td><td>买</td><td>0.01</td><td>1931.66</td><td>4</td><td></td></tr>
+<tr><td>2023-09-05 12:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1933.66</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-05 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1929.66</td><td>5</td><td></td></tr>
+<tr><td>2023-09-05 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1931.66</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-05 13:00</td><td>成交</td><td>买</td><td>0.01</td><td>1930.03</td><td>1</td><td></td></tr>
+<tr><td>2023-09-05 13:00</td><td>成交</td><td>买</td><td>0.01</td><td>1928.03</td><td>2</td><td></td></tr>
+<tr><td>2023-09-05 14:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1926.35</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-05 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1926.03</td><td>3</td><td></td></tr>
+<tr><td>2023-09-05 15:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1928.03</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-06 00:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1924.7</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-06 01:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1924.35</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-06 07:00</td><td>成交</td><td>买</td><td>0.01</td><td>1924.03</td><td>4</td><td></td></tr>
+<tr><td>2023-09-06 10:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1926.03</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-06 13:00</td><td>成交</td><td>买</td><td>0.01</td><td>1922.03</td><td>5</td><td></td></tr>
+<tr><td>2023-09-06 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1924.03</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-08 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1929.5</td><td>1</td><td></td></tr>
+<tr><td>2023-09-08 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1927.5</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-11 07:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1930.03</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-11 10:00</td><td>成交</td><td>买</td><td>0.01</td><td>1925.09</td><td>1</td><td></td></tr>
+<tr><td>2023-09-11 12:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1927.09</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-11 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1923.09</td><td>2</td><td></td></tr>
+<tr><td>2023-09-11 23:00</td><td>成交</td><td>买</td><td>0.01</td><td>1921.09</td><td>3</td><td></td></tr>
+<tr><td>2023-09-12 01:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1923.09</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-12 06:00</td><td>成交</td><td>买</td><td>0.01</td><td>1919.09</td><td>4</td><td></td></tr>
+<tr><td>2023-09-12 08:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1921.09</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-12 10:00</td><td>成交</td><td>买</td><td>0.01</td><td>1917.09</td><td>5</td><td></td></tr>
+<tr><td>2023-09-12 11:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1911.89</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-12 12:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1909.89</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-12 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1913.25</td><td>1</td><td></td></tr>
+<tr><td>2023-09-13 01:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1911.25</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-13 12:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1913.88</td><td>1</td><td></td></tr>
+<tr><td>2023-09-13 13:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1912.68</td><td></td><td class="pos">+1.20</td></tr>
+<tr><td>2023-09-14 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1906.38</td><td>1</td><td></td></tr>
+<tr><td>2023-09-14 14:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1908.38</td><td>2</td><td></td></tr>
+<tr><td>2023-09-14 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1906.38</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-14 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1910.38</td><td>3</td><td></td></tr>
+<tr><td>2023-09-14 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1908.38</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-14 16:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1910.11</td><td>1</td><td></td></tr>
+<tr><td>2023-09-14 18:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1908.11</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-15 01:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1912.38</td><td>4</td><td></td></tr>
+<tr><td>2023-09-15 01:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1914.38</td><td>5</td><td></td></tr>
+<tr><td>2023-09-15 01:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1912.11</td><td>2</td><td></td></tr>
+<tr><td>2023-09-15 01:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1914.11</td><td>3</td><td></td></tr>
+<tr><td>2023-09-15 06:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1919.09</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-15 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1925.09</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-18 17:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1932.03</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-19 10:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1935.66</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-20 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1939.66</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-25 00:00</td><td>成交</td><td>买</td><td>0.01</td><td>1923.19</td><td>1</td><td></td></tr>
+<tr><td>2023-09-25 01:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1925.19</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-25 06:00</td><td>成交</td><td>买</td><td>0.01</td><td>1921.19</td><td>2</td><td></td></tr>
+<tr><td>2023-09-25 07:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1923.19</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-25 08:00</td><td>成交</td><td>买</td><td>0.01</td><td>1921.68</td><td>1</td><td></td></tr>
+<tr><td>2023-09-25 11:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1923.68</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-25 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1919.19</td><td>3</td><td></td></tr>
+<tr><td>2023-09-25 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1917.19</td><td>4</td><td></td></tr>
+<tr><td>2023-09-25 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1915.19</td><td>5</td><td></td></tr>
+<tr><td>2023-09-25 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1919.68</td><td>2</td><td></td></tr>
+<tr><td>2023-09-25 15:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1917.19</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-26 00:00</td><td>成交</td><td>买</td><td>0.01</td><td>1915.09</td><td>1</td><td></td></tr>
+<tr><td>2023-09-26 03:00</td><td>成交</td><td>买</td><td>0.01</td><td>1913.09</td><td>2</td><td></td></tr>
+<tr><td>2023-09-26 06:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1910.38</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-26 06:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1912.38</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-26 06:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1912.11</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-26 06:00</td><td>成交</td><td>买</td><td>0.01</td><td>1911.09</td><td>3</td><td></td></tr>
+<tr><td>2023-09-26 07:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1910.11</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-26 07:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1913.09</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-26 08:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1915.09</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-26 08:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1913.92</td><td>1</td><td></td></tr>
+<tr><td>2023-09-26 10:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1911.92</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-26 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1909.09</td><td>4</td><td></td></tr>
+<tr><td>2023-09-26 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1907.09</td><td>5</td><td></td></tr>
+<tr><td>2023-09-26 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1909.09</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-09-26 15:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1904.38</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-09 00:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1850.53</td><td>1</td><td></td></tr>
+<tr><td>2023-10-09 01:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1848.53</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-09 01:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1852.53</td><td>2</td><td></td></tr>
+<tr><td>2023-10-09 02:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1850.53</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-09 02:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1852.54</td><td>1</td><td></td></tr>
+<tr><td>2023-10-09 03:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1850.54</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-09 04:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1852.7</td><td>1</td><td></td></tr>
+<tr><td>2023-10-09 05:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1850.7</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-09 06:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1853.07</td><td>1</td><td></td></tr>
+<tr><td>2023-10-09 07:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1851.07</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-09 09:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1852.12</td><td>1</td><td></td></tr>
+<tr><td>2023-10-09 10:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1850.12</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-09 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1852.55</td><td>1</td><td></td></tr>
+<tr><td>2023-10-09 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1850.55</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-09 17:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1854.53</td><td>3</td><td></td></tr>
+<tr><td>2023-10-09 17:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1854.54</td><td>2</td><td></td></tr>
+<tr><td>2023-10-09 17:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1852.74</td><td>1</td><td></td></tr>
+<tr><td>2023-10-09 18:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1856.53</td><td>4</td><td></td></tr>
+<tr><td>2023-10-09 19:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1858.53</td><td>5</td><td></td></tr>
+<tr><td>2023-10-10 06:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1856.53</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-10 12:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1854.53</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-10 15:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1860.59</td><td>1</td><td></td></tr>
+<tr><td>2023-10-10 16:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1858.59</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-10 17:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1862.59</td><td>2</td><td></td></tr>
+<tr><td>2023-10-10 18:00</td><td>止盈</td><td>卖</td><td>0.01</td><td>1860.59</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-11 07:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1864.59</td><td>3</td><td></td></tr>
+<tr><td>2023-10-11 07:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1866.59</td><td>4</td><td></td></tr>
+<tr><td>2023-10-11 08:00</td><td>成交</td><td>卖</td><td>0.01</td><td>1868.59</td><td>5</td><td></td></tr>
+<tr><td>2023-10-13 12:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1917.09</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-13 12:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1911.09</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-13 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1920.39</td><td></td><td class="pos">+1.20</td></tr>
+<tr><td>2023-10-13 14:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1918.39</td><td></td><td class="pos">+1.20</td></tr>
+<tr><td>2023-10-13 15:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1920.88</td><td></td><td class="pos">+1.20</td></tr>
+<tr><td>2023-10-15 23:00</td><td>成交</td><td>买</td><td>0.01</td><td>1924.13</td><td>1</td><td></td></tr>
+<tr><td>2023-10-15 23:00</td><td>成交</td><td>买</td><td>0.01</td><td>1922.13</td><td>2</td><td></td></tr>
+<tr><td>2023-10-16 00:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1924.13</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-16 02:00</td><td>成交</td><td>买</td><td>0.01</td><td>1920.13</td><td>3</td><td></td></tr>
+<tr><td>2023-10-16 03:00</td><td>成交</td><td>买</td><td>0.01</td><td>1918.13</td><td>4</td><td></td></tr>
+<tr><td>2023-10-16 04:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1920.13</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-16 05:00</td><td>成交</td><td>买</td><td>0.01</td><td>1916.13</td><td>5</td><td></td></tr>
+<tr><td>2023-10-16 05:00</td><td>成交</td><td>买</td><td>0.01</td><td>1918.02</td><td>1</td><td></td></tr>
+<tr><td>2023-10-16 05:00</td><td>成交</td><td>买</td><td>0.01</td><td>1916.02</td><td>2</td><td></td></tr>
+<tr><td>2023-10-16 06:00</td><td>成交</td><td>买</td><td>0.01</td><td>1914.02</td><td>3</td><td></td></tr>
+<tr><td>2023-10-16 06:00</td><td>成交</td><td>买</td><td>0.01</td><td>1912.02</td><td>4</td><td></td></tr>
+<tr><td>2023-10-16 09:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1916.02</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-16 09:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1914.02</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-16 10:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1918.13</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-16 10:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1918.02</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-16 11:00</td><td>成交</td><td>买</td><td>0.01</td><td>1914.98</td><td>1</td><td></td></tr>
+<tr><td>2023-10-16 12:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1922.13</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-16 12:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1920.02</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-16 12:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1916.98</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-17 02:00</td><td>成交</td><td>买</td><td>0.01</td><td>1912.98</td><td>2</td><td></td></tr>
+<tr><td>2023-10-17 03:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1914.98</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-17 10:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1926.13</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-17 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1921.12</td><td>1</td><td></td></tr>
+<tr><td>2023-10-17 12:00</td><td>成交</td><td>买</td><td>0.01</td><td>1919.12</td><td>2</td><td></td></tr>
+<tr><td>2023-10-17 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1923.12</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-17 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1921.12</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-17 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1924.77</td><td>1</td><td></td></tr>
+<tr><td>2023-10-17 14:00</td><td>成交</td><td>买</td><td>0.01</td><td>1922.77</td><td>2</td><td></td></tr>
+<tr><td>2023-10-17 15:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1926.77</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-17 15:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1924.77</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-17 16:00</td><td>成交</td><td>买</td><td>0.01</td><td>1923.35</td><td>1</td><td></td></tr>
+<tr><td>2023-10-17 17:00</td><td>成交</td><td>买</td><td>0.01</td><td>1921.35</td><td>2</td><td></td></tr>
+<tr><td>2023-10-17 19:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1923.35</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-17 22:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1925.35</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-18 13:00</td><td>止盈</td><td>买</td><td>0.01</td><td>1955.06</td><td></td><td class="pos">+2.00</td></tr>
+<tr><td>2023-10-27 18:00</td><td class="neg">强平</td><td>卖</td><td>0.01</td><td>2000.93</td><td></td><td class="neg">-146.40</td></tr>
+<tr><td>2023-10-27 18:00</td><td class="neg">强平</td><td>卖</td><td>0.01</td><td>2000.93</td><td></td><td class="neg">-146.39</td></tr>
+<tr><td>2023-10-27 18:00</td><td class="neg">强平</td><td>卖</td><td>0.01</td><td>2000.93</td><td></td><td class="neg">-148.19</td></tr>
+<tr><td>2023-10-27 18:00</td><td class="neg">强平</td><td>卖</td><td>0.01</td><td>2000.93</td><td></td><td class="neg">-136.34</td></tr>
+<tr><td>2023-10-27 18:00</td><td class="neg">强平</td><td>卖</td><td>0.01</td><td>2000.93</td><td></td><td class="neg">-134.34</td></tr>
+<tr><td>2023-10-27 18:00</td><td class="neg">强平</td><td>卖</td><td>0.01</td><td>2000.93</td><td></td><td class="neg">-132.34</td></tr>
+</table>
+  </div>
+
+  <p class="note">源文件目录：E:\gold-news-system\docs\汇报\</p>
+</body>
+</html>

@@ -1,0 +1,10 @@
+﻿datetime,news_id,trend_level,direction,title,actions
+2023-07-13 13:00:00+00:00,hist_202307131230_cpi,L3,neutral,US CPI YoY,5
+2023-07-26 18:00:00+00:00,hist_202307261800_fomc,L3,neutral,FOMC Statement,5
+2023-08-04 13:00:00+00:00,hist_202308041230_nfp,L3,neutral,Nonfarm Payrolls,9
+2023-08-13 22:00:00+00:00,hist_202308131230_cpi,L3,neutral,US CPI YoY,10
+2023-09-01 13:00:00+00:00,hist_202309011230_nfp,L3,neutral,Nonfarm Payrolls,4
+2023-09-13 13:00:00+00:00,hist_202309131230_cpi,L3,neutral,US CPI YoY,4
+2023-09-20 18:00:00+00:00,hist_202309201800_fomc,L3,neutral,FOMC Statement,5
+2023-10-06 13:00:00+00:00,hist_202310061230_nfp,L3,neutral,Nonfarm Payrolls,5
+2023-10-13 13:00:00+00:00,hist_202310131230_cpi,L3,neutral,US CPI YoY,5

@@ -1,0 +1,105 @@
+# 复制为 config.yaml 并填入你的账号信息
+mt5:
+  account: 591852231          # 替换为你的 FxPro 模拟盘账号
+  password: "你的FxPro模拟盘密码"
+  server: "FxPro-MT5 Demo"
+  symbol: "GOLD"
+  path: "C:/Program Files/MetaTrader 5/terminal64.exe"
+  enabled: true
+  dry_run: false
+  auto_execute: false       # 默认 false；true 时由 run_mt5_executor.py 补执行
+  magic: 20260711
+  comment_prefix: "gold-news"
+  signal_dir: "data/signals"
+
+paths:
+  history_data: "E:/量化项目/02 History Data"
+  backtest_output: "E:/量化项目/05 Backtest"
+
+news_sources:
+  jin10:
+    enabled: true
+    api_url: "https://flash-api.jin10.com/get_flash_list"
+    channel: "-8200"
+    poll_interval: 60
+    keywords: [黄金, 美联储, 非农, CPI, 地缘政治, 央行]
+    cache_dir: "data/news_cache"
+    x_app_id: "SO1EJGmNgCtmpcPF"
+  eastmoney:
+    enabled: true
+    api_url: "https://np-weblist.eastmoney.com/comm/web/getFastNewsList"
+    fast_column: "100"
+    page_size: 50
+    keywords: [黄金, 美联储, 非农, CPI, 地缘, 央行, 金价, 美元, 通胀]
+  reuters:
+    enabled: false
+
+nlp:
+  model: "deepseek-chat"
+  mode: "api"
+  multi_event: true
+  api_key: ""
+  base_url: "https://api.deepseek.com"
+  max_tokens: 2000
+  dict_path: "data/sentiment_dict/gold_sentiment.yaml"
+  output_dir: "data/sentiment_cache"
+
+trend_scoring:
+  weights:
+    sentiment: 0.35
+    credibility: 0.15
+    novelty: 0.20
+    consensus: 0.15
+    magnitude: 0.15
+  price_blend: 0.20
+  direction_threshold: 12
+
+grid_strategy:
+  base_spacing: 2.0
+  max_layers: 10
+  default_lot: 0.01
+  use_atr: true
+  atr_period: 14
+  atr_timeframe: "H1"
+  atr_ref: 22.0
+  # 留空则使用 paths.history_data/data/XAUUSD_H1.csv
+  atr_csv_path: ""
+  auto_place_orders: true
+  price_tolerance: 0.05
+  price_shock_enabled: true
+  momentum_conflict_threshold: 35
+  momentum_align_boost: 0.1
+  neutral_widen_only: true
+
+risk_control:
+  max_drawdown_pct: 20
+  max_positions: 5
+  margin_limit_pct: 50
+  warning_drawdown_ratio: 0.7
+  warning_margin_ratio: 0.8
+
+# 回测参数（正式实验用年度窗口 + 小资金）
+backtest:
+  initial_balance: 500        # 初始资金（美元），可改为 1000
+  default_years: 1            # 正式回测默认 1 年；3 年用 --years 3
+  smoke_test_days: 14          # 发烟测试仅 1~2 周
+  signal_source: historical   # historical | live | merged
+  historical_signals_file: historical_signals.parquet
+  base_spacing: 3.5     # $500 小账户推荐 3.0–4.0
+  max_layers: 3         # 小资金建议 ≤3 层，避免强平
+  default_lot: 0.01
+  leverage: 100                 # 与 FxPro 模拟盘一致（100 倍）
+  stop_out_margin_level: 50      # 保证金比例 % 低于此强平
+  exclude_event_categories: [claims]
+  l3_shock_hours: 4
+  directional_grid: true
+  risk_overlay_enabled: true
+  warning_margin_level: 80
+  emergency_margin_level: 65
+  warning_spacing_factor: 1.2
+  warning_lot_multiplier: 0.5
+  warning_max_layers_factor: 0.5
+
+runtime:
+  dir: "data/runtime"
+  poll_interval: 60

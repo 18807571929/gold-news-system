@@ -1,0 +1,32 @@
+flowchart LR
+    subgraph 数据层
+        N[金十/东财新闻]
+        M[宏观日历/FRED]
+    end
+
+    subgraph 分析层
+        NLP[NLP 情感分析]
+        TS[五因子 TrendScorer]
+    end
+
+    subgraph 策略层
+        GA[GridAdapter]
+        HS[historical_signals]
+        SP[ShockPolicy]
+    end
+
+    subgraph 执行层
+        SB[SignalBridge JSON]
+        GE[GridExecutor MT5]
+    end
+
+    subgraph 验证层
+        SIM[GridShockSimulator 回测]
+    end
+
+    N --> NLP --> TS --> GA
+    M --> HS --> SP --> GA
+    GA --> SB
+    SP --> SB
+    SB --> GE
+    SB --> SIM

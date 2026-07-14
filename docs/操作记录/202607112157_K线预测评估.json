@@ -1,0 +1,33 @@
+{
+  "run_id": "202607112157",
+  "years": 1.0,
+  "horizon_bars": 4,
+  "warmup_bars": 30,
+  "direction_threshold": 12.0,
+  "window_start": "2025-07-10 23:00:00+00:00",
+  "window_end": "2026-07-10 23:00:00+00:00",
+  "eval_steps": 5578,
+  "neutral_both_skipped": 301,
+  "hit_count": 1749,
+  "hit_rate": 0.3136,
+  "hit_rate_pct": 31.36,
+  "score_mae": 72.56,
+  "by_predicted_direction": {
+    "bullish": {
+      "hit": 953,
+      "total": 2630,
+      "hit_rate": 0.3624
+    },
+    "bearish": {
+      "hit": 796,
+      "total": 2364,
+      "hit_rate": 0.3367
+    },
+    "neutral": {
+      "hit": 0,
+      "total": 584,
+      "hit_rate": 0.0
+    }
+  },
+  "note": "走查评估仅用价格动量（无历史新闻），预测 vs 实际未来 N 根收盘涨跌。"
+}

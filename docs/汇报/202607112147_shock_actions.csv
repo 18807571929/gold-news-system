@@ -1,0 +1,46 @@
+﻿datetime,news_id,trend_level,direction,title,actions
+2023-07-13 13:00:00+00:00,hist_202307131230_cpi,L3,neutral,US CPI YoY,3
+2023-07-20 13:00:00+00:00,hist_202307201230_claims,L1,neutral,Initial Jobless Claims,0
+2023-07-25 13:00:00+00:00,hist_202307251230_gdp,L2,neutral,GDP QoQ,0
+2023-07-26 18:00:00+00:00,hist_202307261800_fomc,L3,neutral,FOMC Statement,3
+2023-07-28 13:00:00+00:00,hist_202307281230_pce,L3,neutral,Core PCE Price Index,0
+2023-08-03 13:00:00+00:00,hist_202308031230_claims,L1,neutral,Initial Jobless Claims,0
+2023-08-04 13:00:00+00:00,hist_202308041230_nfp,L3,neutral,Nonfarm Payrolls,6
+2023-08-07 14:00:00+00:00,hist_202308071400_ism,L2,neutral,ISM Manufacturing PMI,0
+2023-08-09 14:00:00+00:00,hist_202308091400_ism,L2,neutral,ISM Services PMI,0
+2023-08-10 13:00:00+00:00,hist_202308101230_claims,L1,neutral,Initial Jobless Claims,0
+2023-08-13 22:00:00+00:00,hist_202308131230_cpi,L3,neutral,US CPI YoY,3
+2023-08-15 13:00:00+00:00,hist_202308151230_retail,L2,neutral,Retail Sales,0
+2023-08-17 13:00:00+00:00,hist_202308171230_claims,L1,neutral,Initial Jobless Claims,0
+2023-08-24 13:00:00+00:00,hist_202308241230_claims,L1,neutral,Initial Jobless Claims,0
+2023-08-28 13:00:00+00:00,hist_202308281230_pce,L3,neutral,Core PCE Price Index,3
+2023-08-31 13:00:00+00:00,hist_202308311230_claims,L1,neutral,Initial Jobless Claims,0
+2023-09-01 13:00:00+00:00,hist_202309011230_nfp,L3,neutral,Nonfarm Payrolls,3
+2023-09-04 14:00:00+00:00,hist_202309041400_ism,L2,neutral,ISM Manufacturing PMI,0
+2023-09-06 14:00:00+00:00,hist_202309061400_ism,L2,neutral,ISM Services PMI,0
+2023-09-07 13:00:00+00:00,hist_202309071230_claims,L1,neutral,Initial Jobless Claims,0
+2023-09-13 13:00:00+00:00,hist_202309131230_cpi,L3,neutral,US CPI YoY,3
+2023-09-14 13:00:00+00:00,hist_202309141230_claims,L1,neutral,Initial Jobless Claims,0
+2023-09-15 13:00:00+00:00,hist_202309151230_retail,L2,neutral,Retail Sales,0
+2023-09-20 18:00:00+00:00,hist_202309201800_fomc,L3,neutral,FOMC Statement,3
+2023-09-28 13:00:00+00:00,hist_202309281230_pce,L3,neutral,Core PCE Price Index,3
+2023-10-02 14:00:00+00:00,hist_202310021400_ism,L2,neutral,ISM Manufacturing PMI,0
+2023-10-04 14:00:00+00:00,hist_202310041400_ism,L2,neutral,ISM Services PMI,0
+2023-10-05 13:00:00+00:00,hist_202310051230_claims,L1,neutral,Initial Jobless Claims,0
+2023-10-06 13:00:00+00:00,hist_202310061230_nfp,L3,neutral,Nonfarm Payrolls,3
+2023-10-12 13:00:00+00:00,hist_202310121230_claims,L1,neutral,Initial Jobless Claims,0
+2023-10-13 13:00:00+00:00,hist_202310131230_cpi,L3,neutral,US CPI YoY,3
+2023-10-15 22:00:00+00:00,hist_202310151230_retail,L2,neutral,Retail Sales,0
+2023-10-19 13:00:00+00:00,hist_202310191230_claims,L1,neutral,Initial Jobless Claims,0
+2023-10-25 13:00:00+00:00,hist_202310251230_gdp,L2,neutral,GDP QoQ,0
+2023-10-26 13:00:00+00:00,hist_202310261230_claims,L1,neutral,Initial Jobless Claims,0
+2023-11-01 18:00:00+00:00,hist_202311011800_fomc,L3,neutral,FOMC Statement,3
+2023-11-03 13:00:00+00:00,hist_202311031230_nfp,L3,neutral,Nonfarm Payrolls,0
+2023-11-06 14:00:00+00:00,hist_202311061400_ism,L2,neutral,ISM Manufacturing PMI,0
+2023-11-08 14:00:00+00:00,hist_202311081400_ism,L2,neutral,ISM Services PMI,0
+2023-11-09 13:00:00+00:00,hist_202311091230_claims,L1,neutral,Initial Jobless Claims,0
+2023-11-13 13:00:00+00:00,hist_202311131230_cpi,L3,neutral,US CPI YoY,0
+2023-11-15 13:00:00+00:00,hist_202311151230_retail,L2,neutral,Retail Sales,0
+2023-11-16 13:00:00+00:00,hist_202311161230_claims,L1,neutral,Initial Jobless Claims,0
+2023-11-23 13:00:00+00:00,hist_202311231230_claims,L1,neutral,Initial Jobless Claims,0
+2023-11-28 13:00:00+00:00,hist_202311281230_pce,L3,neutral,Core PCE Price Index,3

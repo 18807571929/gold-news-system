@@ -1,0 +1,42 @@
+[
+  {
+    "warning_margin_level": 75,
+    "baseline_pnl": -480.04,
+    "news_pnl": -133.09,
+    "news_vs_baseline": 346.95,
+    "news_stopped_out": false,
+    "baseline_stopped_out": true,
+    "news_max_dd": 43.79,
+    "news_risk_actions": 0
+  },
+  {
+    "warning_margin_level": 80,
+    "baseline_pnl": -480.04,
+    "news_pnl": -133.09,
+    "news_vs_baseline": 346.95,
+    "news_stopped_out": false,
+    "baseline_stopped_out": true,
+    "news_max_dd": 43.79,
+    "news_risk_actions": 0
+  },
+  {
+    "warning_margin_level": 85,
+    "baseline_pnl": -480.04,
+    "news_pnl": -133.09,
+    "news_vs_baseline": 346.95,
+    "news_stopped_out": false,
+    "baseline_stopped_out": true,
+    "news_max_dd": 43.79,
+    "news_risk_actions": 0
+  },
+  {
+    "warning_margin_level": 90,
+    "baseline_pnl": -480.04,
+    "news_pnl": -133.09,
+    "news_vs_baseline": 346.95,
+    "news_stopped_out": false,
+    "baseline_stopped_out": true,
+    "news_max_dd": 43.79,
+    "news_risk_actions": 0
+  }
+]
